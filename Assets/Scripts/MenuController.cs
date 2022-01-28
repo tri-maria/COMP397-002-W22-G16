@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MenuController : MonoBehaviour
 {
+    public AudioMixer audioMixer;
     [Header("Levels to Load")]
 
     public string _newGameLevel;
@@ -33,5 +35,11 @@ public class MenuController : MonoBehaviour
     public void ExitButton()
     {
         Application.Quit();
+    }
+
+    
+    public void SetVolume(float volume) {
+        //  Debug.Log("Volume set");
+        audioMixer.SetFloat("volume", volume);
     }
 }
